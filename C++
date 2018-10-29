@@ -1,0 +1,363 @@
+struct--------------->
+#include <iostream>
+#include <string>
+using namespace std;
+struct student{
+
+string name;
+int age;
+string sex;
+
+struct address;
+int houseno;
+int streetno;
+};
+
+
+
+int main() {
+student anurag;
+anurag.name="anurag";
+anurag.age=23;
+anurag.sex="m";
+anurag.houseno=123;
+anurag.streetno=4;
+cout<<" my name is "<<anurag.name<<", my age is "<<anurag.age<<",sex is "<<anurag.sex<<" and my houseno and street number are "<<anurag.houseno<<" and "<<anurag.streetno<<endl;
+	
+return 0;	
+ }
+ 
+ 
+ next--------------------->
+ 
+ static-------------->
+ #include <iostream>
+#include <string>
+using namespace std;
+
+void display();
+int main() {
+	display();
+	display();display();display();
+	display();
+return 0;	
+ }
+ void display(){
+ 	static int counter=0;
+ 	
+ 	cout<<"display function called "<<++counter<<"times"<<endl;
+ }
+ 
+ next------------------------>
+ 
+ inheritence------------->
+ #include <iostream>
+#include <string>
+using namespace std;
+
+class person{
+	public:
+string name;
+int age;
+
+};
+class student : public person{
+	public:
+		int id;
+		string dresscode;
+		void display(){
+			cout<<"my name is "<<name<<" ,my age is "<<age<<" ,my id is "<<id<<" and my dress code is "<<dresscode<<endl;
+		}
+};
+int main() {
+	student anurag;
+	anurag.name="anurag";
+	anurag.age=23;
+	anurag.id=1234;
+	anurag.dresscode="casual wear";
+	anurag.display();
+	
+return 0;	
+ }
+ 
+ next------------------------------------>
+ 
+ inheritence with function------------>
+ 
+ #include <iostream>
+#include <string>
+using namespace std;
+
+class person{
+	public:
+string name;
+int age;
+void inputname(string iname){name=iname;
+}
+void inputage(int iage){age=iage;
+}
+};
+class student : public person{
+	public:
+		int id;
+		string dresscode;
+		void inputid(int iid){id=iid;
+		}
+		void inputdresscode(string idresscode){dresscode=idresscode;
+		}
+		void display(){
+			cout<<"my name is "<<name<<" ,my age is "<<age<<" ,my id is "<<id<<" and my dress code is "<<dresscode<<endl;
+		}
+};
+int main() {
+	student anurag;
+	anurag.inputname("anurag");
+	anurag.inputage(23);
+	anurag.inputid(1234);
+	anurag.inputdresscode("casual wear");
+	anurag.display();
+return 0;	
+ }
+ 
+ next---------------------->
+ static -------------->
+ 
+ #include <iostream>
+#include <string>
+using namespace std;
+
+class human{
+	public:
+			human(){
+			counter=++counter;
+		}
+		static int counter;
+	
+	void people(){
+		cout<<"there are "<<counter<<" peoples working in the project";
+	}
+	static void peoplecount(){
+		cout<<"there are "<<counter<<" peoples working in the project";
+	}
+};
+int human ::counter=0;
+int main() {
+cout<<human::counter<<endl;
+human anurag;
+human anil;
+human ram;
+human sham;
+human::peoplecount();
+cout<<human::counter<<endl;
+
+return 0;	
+ }
+ 
+ next--------------------------->
+ 
+ constructors and destructors-->
+ 
+ #include <iostream>
+#include <string>
+using namespace std;
+
+class human {
+public:
+	string name;
+	int age;
+	 
+	 human(string name="anurag",int age=23){
+	 	
+	 	cout<<"my  name is "<<name<<endl;
+	 	
+	 	cout<<" my age is "<<age<<endl;
+	 }
+	~human(){
+		name="anurag bansal";
+		cout<<"my full name is "<<name<<endl;
+	}
+};
+int main() {
+	human *anurag;
+	anurag=new human();
+	delete anurag;
+return 0;
+ }
+ 
+ next------------------------------------------------->
+ 
+ class member------------------->
+ 
+ #include <iostream>
+#include <string>
+using namespace std;
+
+class human {
+public:
+	string name;
+	int age;
+	 
+	 human(string name="anurag",int age=23){
+	 	
+	 	cout<<"my  name is "<<name<<endl;
+	 	
+	 	cout<<" my age is "<<age<<endl;
+	 }
+	
+	 	 
+
+};
+int main() {
+	human anurag;
+	
+	
+	
+return 0;	
+ }
+ 
+ next----------------------------------------------------------->
+ 
+ odd and even number-------------->
+ 
+ #include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	int numbers;
+	float remainder;
+	cout<<"enter the number"<<endl;
+	cin>>numbers;
+	remainder=numbers%2;
+	if(remainder==0)
+	cout<<"even number"<<endl;
+	else
+	cout<<"odd number"<<endl;
+	return 0;
+}
+
+next----------------------------------------------------------------->
+
+percentage--------------------->
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	float a,b,c;
+	cout<<"obtained marks ="<<endl;
+	cin>>a;
+	cout<<"total marks="<<endl;
+	cin>>b;
+	cout<<"percentage="<<endl;
+	c=a/b*100;
+	cout<<c<<endl;
+	
+	return 0;
+}
+
+next-------------------------------------------------------------------->
+
+blood----------------------->
+
+#include <iostream>
+#include <iostream>
+using namespace std;
+
+int main() {
+	int a;
+	cin>>a;
+	
+	if(a>=0)
+	cout<<"u can donate blood"<<endl;
+	else
+	cout<<"u cannot donate blood"<<endl;
+	
+	
+	
+	
+	return 0;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
