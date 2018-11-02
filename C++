@@ -280,6 +280,914 @@ int main() {
 	return 0;
 	
 }
+next------------------------------------------------->
+-- operator------------------>
+#include <iostream>
+#include <string>
+using namespace std;
+class marks{
+	public:
+		int mark;
+		marks(){
+			mark=0;
+		}
+		marks(int m){
+			mark=m;
+		}
+		void display(){cout<<"your mark is "<<mark<<endl;
+		}
+		marks operator++(int){
+			for (mark=1;mark<=5;mark++){
+				cout<<mark<<endl;
+			}
+		}
+};
+
+int main(){
+
+ marks anurag(68);
+ anurag.display();
+ anurag++;
+ 
+ 
+
+
+return 0;
+}
+
+next--------------------------------------------------------------->
+() special operator--------------------------->
+#include <iostream>
+#include <string>
+#include <stdexcept>
+using namespace std;
+
+int main()
+ 
+{
+	int a=10,  b=0, c;
+	try{
+		if(b==0)
+		throw runtime_error("divide by zero error");
+		c=a/b;
+		cout<<c<<endl;
+	}catch(runtime_error error){
+		cout<<"exception occured"<<endl;
+		cout<<error.what();
+	}
+	
+return 0;
+}
+
+next----------------------------------------------------------------->
+++ operator---------------------------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+class marks{
+	public:
+		int mark;
+		marks(){
+			mark=0;
+		}
+		marks(int m){
+			mark=m;
+		}
+		void display(){cout<<"your mark is "<<mark<<endl;
+		}
+		marks operator++(int){
+			for (mark=1;mark<=5;mark++){
+				cout<<mark<<endl;
+			}
+		}
+};
+
+int main(){
+
+ marks anurag(68);
+ anurag.display();
+ anurag++;
+ 
+ 
+
+
+return 0;
+}
+
+next------------------------------------------------------------------->
+++overloading-------------------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+class marks{
+	public:
+		int intmarks;
+		int exmarks;
+		marks(){
+			intmarks=0;
+			exmarks=0;
+		}
+		marks(int in ,int ex){
+			intmarks=in;
+			exmarks=ex;
+		}
+		void display(){
+			cout<<intmarks<<endl<<exmarks<<endl;
+		}
+		marks operator+(marks m){
+			marks temp;
+			temp.intmarks = intmarks + m.intmarks;
+			temp.exmarks = exmarks + m.exmarks;
+			return temp;
+		}
+		
+};
+
+int main()
+ 
+{
+marks m1(20,30),m2(50,10);
+marks m3 = m1+m2;
+m3.display();
+return 0;
+}
+
+next----------------------------------------------------------->
+aong greater number------------------------>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+int num1,num2,num3;
+cout<<" enter the first number "<<endl;
+cin>>num1;
+cout<<"enter the second number "<<endl;
+cin>>num2;
+if(num1>num2){cout<<" first number is greater than second number "<<endl;
+}
+else
+{cout<<" second number is greater than first number "<<endl;
+}
+return 0;	
+ }
+ 
+ next--------------------------------------------------------------->
+ array in class--------------------------------->
+ #include <iostream>
+#include <string>
+using namespace std;
+class marks{
+	int subjects[3];
+	public:
+		marks(int sub1,int sub2,int sub3){
+			subjects[0]=sub1;
+			subjects[1]=sub2;
+			subjects[2]=sub3;
+		}
+		int operator[](int position){
+			return subjects[position];
+		}
+};
+
+int main()
+ 
+{
+	marks anurag(24,56,78);
+	cout<<anurag[0]<<endl;
+	cout<<anurag[1]<<endl;
+	cout<<anurag[2]<<endl;
+return 0;
+}
+
+next---------------------------------------------------------------------------->
+average----------------------------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+float a,b,c,d,e,f;
+float average;
+cout<<"marks in english "<<endl;
+cin>>a;
+cout<<"marks in hindi "<<endl;
+cin>>b;
+cout<<"marks in telugu "<<endl;
+cin>>c;
+cout<<"marks in social science "<<endl;
+cin>>d;
+cout<<"marks in maths "<<endl;
+cin>>e;
+cout<<"marks in economics "<<endl;
+cin>>f;
+average=(a+b+c+d+e+f)/6;
+cout<<"average marks are "<<average<<endl;
+return 0;	
+ }
+ 
+ next------------------------------------------------------------------------------------>
+ car speed ------------------------------------------------->
+ #include <iostream>
+#include <string>
+#include<stdexcept>
+#include<exception>
+
+using namespace std;
+class overspeed : public exception{
+	public:
+		int speed;
+		const char*what(){
+			return "check out ur car speed \n ur in car not in aeroplane \n";
+		}
+		void getspeed(){cout<<"ur car speed is "<<speed;
+		}
+		void setspeed(int speed){
+			this->speed=speed;
+		}
+};
+class car{
+	int speed;
+	public:
+		car(){
+			speed=0;
+			cout<<" speed is "<<speed<<endl;
+		}
+		void accelerate(){
+			for(;;){
+				speed+=10;
+				cout<<"speed is "<<speed<<endl;
+				if (speed >=250){
+					overspeed s;
+					s.setspeed(speed);
+					throw s;
+				}
+			}
+		}
+};
+
+
+int main() 
+{
+car anuragscar;
+try{
+	anuragscar.accelerate();
+}catch(overspeed s){
+	cout<<s.what()<<endl;
+	s.getspeed ();
+}
+	
+return 0;
+}
+
+next----------------------------------------------------------------------------->
+class in function----------------------------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+void studentname();
+void personname();
+int main()
+ {
+ studentname();
+ personname();	
+return 0;
+}
+void studentname(){
+	class student{
+		public:
+			string name;
+			int age;
+			void display(){cout<<name<<endl<<age<<endl;
+			}
+	};
+	student anurag;
+	anurag.name="anurag";
+	anurag.age=23;
+	anurag.display();
+	
+}
+void personname(){
+	class person{
+		public:
+			string sex;
+			int height;
+			void personid(){cout<<sex<<endl<<height<<endl;
+			}
+	};
+	person anurag;
+	anurag.sex="m";
+	anurag.height=6;
+	anurag.personid();
+}
+
+next----------------------------------------------------------------------------------->
+current age-------------------------------->
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+int main()
+ {int age;
+ int currentyear;
+ int birthyear;
+ cout<<"my current year is "<<endl;
+ cin>>currentyear;
+ cout<<" my birthyear is "<<endl;
+ cin>>birthyear;
+ age=currentyear-birthyear;
+ cout<<"anurag is "<<age<< "years old "<<endl;
+ 
+
+return 0;
+}
+
+next--------------------------------------------------------------------------------->
+diamond problem------------------------------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+class animal{
+	public:
+		animal(){
+			cout<<"animal constructor"<<endl;
+		}
+		
+		void walk(){
+		
+		cout<<" animal walks "<<endl;}
+		
+};
+class tiger :virtual public animal{
+	public:
+		tiger(){
+			cout<<" tiger constuctor"<<endl;
+		}
+};
+class lion : virtual public animal{
+	public:
+		lion(){
+			cout<<" lion constuctor"<<endl;
+		}
+};
+
+class liger : public tiger , public lion{
+	public:
+		liger(){
+			cout<<" liger constuctor"<<endl;
+		}
+};
+
+int main()
+ {
+liger anurag;
+anurag.walk();
+return 0;
+}
+
+next------------------------------------------------------------------------------------------>
+function through exception-------------------------------------->
+#include <iostream>
+#include <string>
+#include<stdexcept>
+
+using namespace std;
+void test()  throw(int,char,runtime_error){
+
+
+throw runtime_error(" infinity answer ");
+}
+
+
+int main()
+ 
+{
+	try{
+		test();
+	}
+
+catch(int a){cout<<"exception integer"<<a<<endl;
+}
+catch(char m){cout<<"exception charator"<<m<<endl;
+}
+catch(runtime_error b){cout<<"exception runtime_error"<<b.what()<<endl;
+}
+	
+return 0;
+}
+
+next---------------------------------------------------------------------------------------->
+high car speed------------------------------------->
+#include <iostream>
+#include <string>
+#include<stdexcept>
+#include<exception>
+using namespace std;
+class overspeed : public exception{
+	public:
+		int speed;
+		int mycar(){
+			cout<<" ur car speed is high "<<endl<<" u r in car not in aeroplane "<<endl;
+		}
+		
+};
+class car{
+	public:
+		int speed;
+	void myspeed(){cout<<" now my car speed is "<<speed;
+	}
+		void show(){
+			for(speed=0;speed+=10;){
+				
+				cout<<"speed is "<<speed<<endl;
+			
+			if(speed>=200){
+				overspeed s;
+				throw s;
+				
+			}
+		}}
+};
+
+
+int main() 
+{
+car anuragscar;
+try{
+anuragscar.show();
+}
+catch (overspeed s){
+	cout<<s.mycar()<<endl;
+}
+anuragscar.myspeed();
+
+	
+return 0;
+}
+
+next---------------------------------------------------------------->
+interest-------------------------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+float a,b,c,d,e,f,g,h,i,j,k;
+cout<<"enter the amount u have to deposit "<<endl;
+cin>>a;
+b=(a*1.7)/100;
+cout<<"after 1 year compount interest is "<<b<<endl;
+c=a+b;
+cout<<"after 1 year ur accunt balance is "<<c<<endl;
+
+d=(c*1.7)/100;
+cout<<"after 2 year compount interest is "<<d<<endl;
+e=c+d;
+cout<<"after 2 year ur accunt balance is "<<e<<endl;
+
+f=(e*1.7)/100;
+cout<<"after 3 year compount interest is "<<f<<endl;
+g=e+f;
+cout<<"after 3 year ur accunt balance is "<<g<<endl;
+
+h=(g*1.7)/100;
+cout<<"after 4 year compount interest is "<<h<<endl;
+i=g+h;
+cout<<"after 4 year ur accunt balance is "<<i<<endl;
+j=(i*1.7)/100;
+cout<<"after 5 year compount interest is "<<j<<endl;
+k=i+j;
+cout<<"after 5 year ur accunt balance is "<<k<<endl;
+
+
+return 0;	
+ }
+ 
+ next------------------------------------------------------------------------------->
+ leap year----------------------->
+ #include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+int year;
+int a;
+cout<<" enter the year "<<endl;
+cin>>year;
+a=year%4;
+if(a==0){
+	
+	cout<<"leap year "<<endl;
+}
+	else
+	{cout<<"not a leap year "<<endl;
+	}
+return 0;	
+ }
+ 
+ next-------------------------------------------------------------------->
+ multiple catch----------------->
+ #include <iostream>
+#include <string>
+#include <stdexcept>
+using namespace std;
+
+int main()
+ 
+{
+	try {
+	
+		throw 39;
+}
+
+	catch(const char *a){
+		cout<<"exception "<<endl;
+	}	catch(...){
+		cout<<"error occured"<<endl;
+	}
+	
+	
+return 0;
+}
+
+next----------------------------------------------------------------------------------->
+multiple inheritence------------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+class father{
+	public:
+		int height;
+		void askfather(){
+			cout<<"father asks me what u will do in future"<<endl;
+		}
+};
+class mother{
+	public:
+		string skincolour;
+		void askmother(){
+			cout<<"mother asks me what u will do in future"<<endl;
+		}
+};
+class child : public father , public mother{
+public:
+	void askparents(){
+		cout<<"i m asking"<<endl;
+	}
+	void set(string colour,int iheight){
+		skincolour=colour;
+		height=iheight;
+		
+		cout<<"colour is "<< skincolour<<" and height is "<<height<<endl;
+	}
+};
+
+int main()
+ {
+ 	child anurag;
+ 	anurag.set("white",6);
+ 	
+ 	anurag.askfather();
+ 	anurag.askmother();
+ 	anurag.askparents();
+ 	
+return 0;
+}
+
+next---------------------------------------------------------------------->
+nested class-------------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+class person{
+	public:
+		string name;
+		class address{
+			public:
+				string country;
+				string colonyname;
+				int hno;
+		};
+		address addr;
+		void addressname(){
+			cout<<name<<endl<<addr.country<<endl<<addr.colonyname<<endl<<addr.hno<<endl;
+		}
+};
+
+int main()
+ {
+ 	person anurag;
+ 	anurag.name="anurag";
+ 	anurag.addr.country="india";
+ 	anurag.addr.colonyname="dav";
+ 	anurag.addr.hno=234;
+ 	anurag.addressname();
+ 
+
+return 0;
+}
+
+next-------------------------------------------------------------------------->
+operator outside class--------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+class marks{
+	public:
+		int mark;
+		marks(){
+			mark=0;
+		}
+		marks(int m){
+			mark=m;
+		}
+		void display(){cout<<"your mark is "<<mark<<endl;
+		}
+		marks operator++(){
+			mark+=1;
+			
+		}
+		void operator-=(int marks )
+		{mark=mark-9;
+		
+		}
+};
+
+int main(){
+
+ marks anurag(68);
+ anurag.display();
+ ++anurag;
+ anurag.display();
+ anurag-= (9);
+ anurag.display();
+
+
+return 0;
+}
+
+next--------------------------------------------------------------------------------------->
+overloaded new and delete------------------------>
+#include <iostream>
+#include <string>
+#include<exception>
+#include<cstdlib>
+using namespace std;
+class student{
+	string name;
+	int age;
+	public:
+		student(){
+			name="noname";
+			age=0;
+		}
+		student(string name,int age){
+		this->name =name;
+		this->age =age;
+				}
+		void whoru(){
+			cout<< " hi my name is "<<name<<" and my age is "<<age<<endl;
+		}
+		void *operator new(size_t size){
+			void *pointer;
+			cout<<"overloaded new size is "<<size<<endl;
+			pointer=malloc(size);
+			if(!pointer){
+				bad_alloc ba;
+				throw ba;
+			}
+			return pointer;
+		}
+		void operator delete(void *pointer)	{
+			cout<<"overloaded delete "<<endl;
+			free (pointer);
+		}	
+};
+
+
+int main() 
+{
+	student *anuragsptr;
+	try{
+		anuragsptr=new student("anurag",23);
+		anuragsptr->whoru();
+		delete anuragsptr;
+	}catch(bad_alloc b){
+		cout<<b.what()<<endl;
+	}
+return 0;
+}
+
+
+next----------------------------------------------------------------------------------------------->
+passing values class----------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+class father{
+	protected:
+		int height;
+		public:
+			father(int h){
+				cout<<"constructor of father is called"<<endl;
+				height=h;
+					}
+};
+class child : public father{
+	public:
+		child(int x) : father(x){
+			cout<<"child class constructor"<<endl;
+		}
+		void display(){
+			cout<<"height is "<<height<<endl;
+		}
+};
+
+
+int main()
+ {
+ 	child anurag(23);
+ 	anurag.display();
+return 0;}
+next------------------------------------------------------------------------------------>
+this pointer----------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+class person{
+	private:
+	int age;
+	public:
+		
+		void introduce(int age){
+			this->age=age;}
+			void show(){
+			
+			cout<< "my age is "<<age<<endl;
+			
+		}
+};
+
+int main()
+ {
+person anurag;
+anurag.introduce(23);
+anurag.show();
+ 	
+return 0;
+}
+next-------------------------------------------------------------------->
+try,throw,catch--------------------------->
+#include <iostream>
+#include <string>
+#include <stdexcept>
+using namespace std;
+
+int main()
+ 
+{
+	try {
+	
+		throw 39;
+}
+
+	catch(const char *a){
+		cout<<"exception "<<endl;
+	}	catch(...){
+		cout<<"error occured"<<endl;
+	}
+	
+	
+return 0;
+}
+
+next------------------------------------------------------------------------------------------------>
+two base classes inherit to derived class----------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+class father{
+	protected:
+		int height;
+		public:
+			father(){
+				cout<<"constructor of father is called"<<endl;
+					}
+};
+class mother{
+	protected:
+		string skincolour;
+		public:
+			mother(){
+				cout<<"constructor of mother is called"<<endl;
+					}
+};
+class child : public father,public mother{
+	public:
+		child(int x,string colour) : father(),mother(){
+			height=x;
+			skincolour=colour;
+			cout<<"child class constructor"<<endl;
+		}
+		void display(){
+			cout<<"height is "<<height<<" skin colour is "<<skincolour<<endl;
+		}
+};
+
+
+int main()
+ {
+ 	child anurag(23,"white");
+ 	anurag.display();
+return 0;
+}
+next------------------------------------------------------------------------------------------>
+use of virtual------------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+class person{
+	public:
+	virtual void introduce(){
+			cout<< "hi i am a person"<<endl;
+		}
+		
+};
+class student : public person{
+			public:
+				void introduce(){
+					cout<<"i m a student and i m awesome"<<endl;
+					
+				}
+		};
+class gstudent:public student{
+	public:
+				void introduce(){
+					cout<<"i m a gstudent and i m great"<<endl;}
+};	
+void show(person &p)	{
+	p.introduce();
+}
+
+int main()
+ {
+   person anurag;
+   student anil;
+   gstudent ram;
+   show(anurag);
+   show(anil);
+   show(ram);  
+return 0;}
+next------------------------------------------------------------------------------------------->
+simple virtual-------------------------->
+#include <iostream>
+#include <string>
+using namespace std;
+
+class person{
+	public:
+	virtual void introduce(){
+			cout<< "hi i am a person"<<endl;
+		}
+		
+};
+class student : public person{
+			public:
+				void introduce(){
+					cout<<"i m a student and i m awesome"<<endl;
+					
+				}
+		};
+class gstudent:public student{
+	public:
+				void introduce(){
+					cout<<"i m a gstudent and i m great"<<endl;}
+};	
+
+
+int main()
+ {
+   person anurag;
+   student anil;
+   gstudent ram;
+   anurag.introduce();
+   anil.introduce();
+   ram.introduce();
+    
+return 0;}
+next----------------------------------------------------------->
+
 
 
 
